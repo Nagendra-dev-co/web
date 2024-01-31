@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webpage with Ping and Uptime</title>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+    }
+
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #333;
+    }
+
+    input, select, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #passwordBox {
+        display: none;
+    }
+
+    #passwordBox label {
+        color: #333;
+    }
+
+    #passwordBox input {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Webpage with Ping and Uptime</h1>
+
+<form id="pingForm" action="action.php" method="post">
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+
+<label for="file">Choose a file:</label>
+<input type="file" id="file" name="file" accept=".txt">
+
+<label for="action">Choose an action:</label>
+<select id="action" name="action">
+    <option value="ping">Ping</option>
+    <option value="uptime">Uptime</option>
+</select>
+
+<!-- Password input initially hidden -->
+<div id="passwordBox">
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+</div>
+
+<button type="submit">Submit</button>
+
+<script>
+    function checkAction() {
+        const action = document.getElementById('action').value;
+        const passwordBox = document.getElementById('passwordBox');
+
+        // Show password box only if 'Uptime' is selected
+        passwordBox.style.display = action === 'uptime' ? 'block' : 'none';
+    }
+</script>
+</form>
+
+</body>
+</html>
