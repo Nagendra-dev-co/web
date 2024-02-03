@@ -1,8 +1,12 @@
-<html>
-<body>
-<?php $a = $_POST["uname"]; ?><br>
-<?php $b = $_POST["file"];?><br>
-<?php $output = shell_exec("/disk1/web/www/html/ping.sh $a $b");?> <br>
-<?php echo "<pre><td class='title'><font color='green' size='5'><b>$output</b></a></td></pre>"; ?>
-</body>
-</html>
+<?php
+
+$a = $_POST["username"]; 
+
+$tmp_name = $_FILES["file"]["tmp_name"];
+$file_name = $_FILES["file"]["name"];
+
+move_uploaded_file($tmp_name, "uploads/" . $file_name);
+
+echo "File uploaded successfully."
+
+?>
