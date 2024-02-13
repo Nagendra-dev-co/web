@@ -1,8 +1,22 @@
 <?php
+
+$user_name = $_POST['username'];
+$testType = $_POST['testType'];
+$password = $_POST['password'];
+
+if($testType == 'ping_test'){
+ 
+}else if($testType == 'check_uptime'){
+    /// based on the test type you cal change the logic.
+    /// what ever you echo here will be sent to the front-end(check the console to view the data).
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 $user = filter_input(INPUT_POST, "username", FILTER_SANITIZE_STRING);
+
 if (isset($_FILES["file"])) {
     $file = $_FILES["file"];
+
     $uploadsDirectory = "/opt/web/";
     $allowedExtensions = ["txt"];
     $fileExtension = pathinfo($file["name"], PATHINFO_EXTENSION);

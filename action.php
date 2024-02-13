@@ -1,5 +1,5 @@
 <?php
 
-echo "API is working";
+echo '{"success" : true}';
 
 ?>
