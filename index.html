@@ -1,124 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Webpage with Ping and Uptime</title>
-<style> src="./js/main.js"</style>
-<style>
-  body {
-    font-family: "Arial", sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webpage with Ping and Uptime</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
 
-  h1 {
-    color: #333;
-    text-align: center;
-  }
+      h1 {
+        color: #333;
+        text-align: center;
+      }
 
-  form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
+      form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+      }
 
-  label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #333;
-  }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #333;
+      }
 
-  input,
-  select,
-  button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
 
-  button {
-    background-color: #4caf50;
-    color: #fff;
-    cursor: pointer;
-  }
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+      }
 
-  button:hover {
-    background-color: #45a049;
-  }
+      button:hover {
+        background-color: #45a049;
+      }
 
-  #passwordBox {
-    display: none;
-  }
+      #passwordBox {
+        display: none;
+      }
 
-  #passwordBox label {
-    color: #333;
-  }
+      #passwordBox label {
+        color: #333;
+      }
 
-  #passwordBox input {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  } 
+      #passwordBox input {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome To Technicolor</h1>
 
+    <form id="pingForm" method="post" enctype="multipart/form-data" action="javascript:void(0)">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
 
+      <label for="file">Choose a file:</label>
+      <input type="file" id="file" name="file" accept=".txt" required />
+      <label for="testType">Select Test Type:</label>
+      <select id="testType" name="testType">
+        <option value="ping_test">Ping Test</option>
+        <option value="check_uptime">Check Uptime</option>
+        <option value="check_gpu_model">Check GPU Model</option>
+        <option value="check_serial_number">Check Serial Number</option>
+        <option value="check_mac_id">Check MAC ID</option>
+      </select>
+      <div id="passwordBox" style="display: none">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" />
+      </div>
 
-</style>
+      <button type="submit" id="form-submit-btn">Submit</button>
+    </form>
+    <script>
+      // document
+      //   .getElementById("testType")
+      //   .addEventListener("change", function () {
+      //     var testType = this.value;
+      //     var passwordBox = document.getElementById("passwordBox");
+      //     var passwordInput = document.getElementById("password");
 
-</head>
-<body>
-<h1> Welcome To Technicolor</h1>
+      //     if (testType === "serialNumber" || testType === "macId") {
+      //       passwordBox.style.display = "block";
+      //       passwordInput.required = true;
+      //     } else {
+      //       passwordBox.style.display = "none";
+      //       passwordInput.required = false;
+      //     }
+      //   });
 
-<form id="pingForm"  method="post"  enctype="multipart/form-data">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username" required />
+      // if (testType === "ping") {
+      //   document.getElementById("pingForm").action = "action1.php";
+      // }
+    </script>
 
-  <label for="file">Choose a file:</label>
-  <input type="file" id="file" name="file" accept=".txt" required /> 
-  <label for="testType">Select Test Type:</label>
-  <select id="testType" name="testType">
-  <option value="ping">Ping Test</option>
-  <option value="uptime">Check Uptime</option>
-  <option value="gpuModel">Check GPU Model</option>
-  <option value="serialNumber">Check Serial Number</option>
-  <option value="macId">Check MAC ID</option>
-</select>
- <div id="passwordBox" style="display: none;">
- <label for="password">Password:</label>
- <input type="password" id="password" name="password" required />
- </div>
-
-  <button type="submit">Submit</button>
-</form> 
-<script>
- document.getElementById('testType').addEventListener('change', function() {
- var testType = this.value;
- var passwordBox = document.getElementById('passwordBox');
- var passwordInput = document.getElementById('password');
-
- if (testType === 'serialNumber' || testType === 'macId') {
-     passwordBox.style.display = 'block';
-     passwordInput.required = true;
-     } 
-  else {
-       passwordBox.style.display = 'none';
-      passwordInput.required = false;
-       }
-       }); 
-
-  if (testType === 'ping') {
-      document.getElementById('pingForm').action = 'action1.php';
-   } 
-  
-</script>
-
-</body>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
-
