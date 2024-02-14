@@ -1,16 +1,3 @@
-
-$(document).ready(function(){
-    $('#testType').change(function(){
-        var selectedTest = $(this).val();
-        if(selectedTest === 'uptime' || selectedTest === 'macId' || selectedTest === 'serialNumber') {
-            $('#passwordBox').show();
-        } else {
-            $('#passwordBox').hide();
-        }
-    });
-});
-
-
 $(function () {
     $("#pingForm").on("submit", function (event) {
         /// disable the submit button.
@@ -38,4 +25,13 @@ $(function () {
             }            
         });
     });
+
+    $('#testType').change(function(){
+        var selectedTest = $(this).val();
+        if(selectedTest === 'check_uptime' || selectedTest === 'check_mac_id' || selectedTest === 'check_serial_number') {
+            $('#passwordBox').removeClass("hide");
+        } else {
+            $('#passwordBox').addClass("hide");
+        }
+    });    
 });
