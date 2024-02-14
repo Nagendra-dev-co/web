@@ -5,8 +5,16 @@ $(function () {
 
         var formData = new FormData(this);
 
+        const testType = formData.get("testType")
+
+        let url = 'http://localhost/web/action1.php';
+
+        if(testType === 'check_uptime' || testType === 'check_mac_id' || testType === 'check_serial_number') {
+            url = 'http://tazz.bang.mpc.local/php/uptime.php';
+        }
+
         $.ajax({
-            url: 'http://localhost/web/action1.php', ///TODO(Snake): replace the url as per the domain url.
+            url: url, 
             type: "POST",
             data: formData,
             enctype: 'multipart/form-data',           
