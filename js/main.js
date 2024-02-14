@@ -1,3 +1,16 @@
+
+$(document).ready(function(){
+    $('#testType').change(function(){
+        var selectedTest = $(this).val();
+        if(selectedTest === 'uptime' || selectedTest === 'macId' || selectedTest === 'serialNumber') {
+            $('#passwordBox').show();
+        } else {
+            $('#passwordBox').hide();
+        }
+    });
+});
+
+
 $(function () {
     $("#pingForm").on("submit", function (event) {
         /// disable the submit button.
